@@ -1,0 +1,31 @@
+digraph nms_mex_calls{
+rankdir="LR"
+node [shape=box, color=blue, facecolor=white]
+spp_exp_cache_features_voc -> imdb_from_voc;
+spp_exp_cache_features_voc -> spp_cache_convX_features;
+spp_exp_cache_features_voc -> mkdir_if_missing;
+imdb_from_voc -> get_voc_opts;
+imdb_from_voc -> imdb_eval_voc;
+imdb_from_voc -> roidb_from_voc;
+imdb_from_voc -> tic_toc_print;
+spp_cache_convX_features -> spp_config;
+spp_cache_convX_features -> spp_create_model;
+spp_cache_convX_features -> spp_features_convX;
+spp_cache_convX_features -> spp_load_model;
+spp_cache_convX_features -> mkdir_if_missing;
+spp_cache_convX_features -> procid;
+imdb_eval_voc -> nms;
+imdb_eval_voc -> spp_config;
+imdb_eval_voc -> xVOCap;
+roidb_from_voc -> boxoverlap;
+roidb_from_voc -> tic_toc_print;
+spp_config -> mkdir_if_missing;
+spp_create_model -> spp_load_pooling_params;
+spp_features_convX -> caffe;
+spp_features_convX -> caffe_anysize_test;
+spp_load_model -> caffe;
+nms -> nms_mex;
+spp_load_pooling_params -> spm_expected_scale;
+spp_load_pooling_params -> spm_response_boxes;
+caffe_anysize_test -> caffe;
+}

@@ -42,7 +42,11 @@ cache/
 
 # data folder #
 ######################
-data/
+datasets/
+
+# external library #
+######################
+external/
 
 # model folder #
 ######################
